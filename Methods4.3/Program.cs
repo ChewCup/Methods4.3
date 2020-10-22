@@ -12,22 +12,22 @@ namespace Methods4._0
         static void Main(string[] args)
         {
             //declare
+            double tax;
+            double netto;
             //ask users salary
             Console.Write("Ange din bruttolön ");
             double brutto = double.Parse(Console.ReadLine());
-            Console.WriteLine($"du betalar { CalcSalaryTax(brutto) }");
+            CalcSalaryTax(brutto, out tax, out netto);
+            Console.WriteLine("Din bruttolön är {0}kr och du betalar {1}kr i skatt. Efter din skatt har du {2}kr.", brutto, tax, netto);
             /*Console.Write("du betalar {0}kr i skatt och din nettolön är {1}kr", tax, netto);*/
             /*nettoSalary = CalcSalaryTax();*/
             //stop
             Console.ReadKey();
         }
-        static string CalcSalaryTax(double brutto)
+        static void CalcSalaryTax(double brutto, out double tax, out double netto)
         {
-
-            double tax = brutto * 0.32;
-            double netto = brutto - tax;
-
-            return tax.ToString();
+             tax = brutto * 0.32;
+             netto = brutto - tax;
         }
     }
 }
